@@ -1,0 +1,52 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">	
+	<title>Game News</title>	
+	<link rel="stylesheet" href='{% static 'style.css' %}'>	
+	<link rel="icon" href='{% static 'Logo.png' %}' />
+</head>
+<body>
+	<table width="100%">
+		<tr> 
+			<td colspan="3" height="90" bgcolor="#640882" id="header">											
+				<center><span>Game News</span><img src='{% static 'Logo.png' %}' width="60px"/></center>
+			</td>
+		</tr>
+		<tr> 
+			<td height="600" colspan="2"  valign="top">
+				<div id="nav">
+					<img src='{% static 'logo_nav.jpg' %}' id="foto_nav">
+					<h3>Mais acessadas</h3>
+					{%for artigo in artigos %} 
+						<a href="?artigo={{artigo.id}}">
+						<h4>
+							{{artigo.titulo}}
+						</h4>
+					</a>																				
+    				{% endfor %} 					
+				</div>				
+			</td>
+			<td width="1000" >
+				{% block conteudo %}
+
+    			{% endblock %}
+			</td>
+		</tr>
+		<tr bgcolor="#333"  height="100"> 
+			<td id="footer" colspan="3">
+				<a  href="https://github.com/fabiano-araujo" title="github">
+					<img src='{% static 'sem.png' %}' id="link_git"/>
+				</a>				
+				<center id="info">
+					Desenvolvido por: 
+					<a href="https://www.facebook.com/fabiano.araujo123" target="blank">
+						Fabiano de Araujo
+					</a>			
+				</center>					
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
